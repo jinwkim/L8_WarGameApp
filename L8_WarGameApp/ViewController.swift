@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftScoreLabel: UILabel!
     @IBOutlet weak var rightScoreLabel: UILabel!
     
+    var playerScore = 0
+    var computerScore = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,6 +34,20 @@ class ViewController: UIViewController {
         
         leftImageView.image = UIImage(named:"card\(leftNumber)")
         rightImageView.image = UIImage(named:"card\(rightNumber)")
+        
+        if leftNumber > rightNumber{
+            playerScore = playerScore+1
+            leftScoreLabel.text = "\(playerScore)"
+        } else if leftNumber == rightNumber {
+//            print("There is a draw")
+            playerScore = playerScore+1
+            leftScoreLabel.text = "\(playerScore)"
+            computerScore = computerScore+1
+            rightScoreLabel.text = "\(computerScore)"
+        } else{
+            computerScore = computerScore+1
+            rightScoreLabel.text = "\(computerScore)"
+        }
     }
     
 }
