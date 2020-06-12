@@ -27,25 +27,28 @@ class ViewController: UIViewController {
     
     
     @IBAction func dealTapped(_ sender: Any) {
+        // Randomize numbers
         let leftNumber = Int.random(in: 2...14)
 //        print(leftNumber)
         let rightNumber = Int.random(in: 2...14)
 //        print(rightNumber)
         
+        // Update image views
         leftImageView.image = UIImage(named:"card\(leftNumber)")
         rightImageView.image = UIImage(named:"card\(rightNumber)")
         
-        if leftNumber > rightNumber{
-            playerScore = playerScore+1
+        // Compare the player and CPU numbers
+        if leftNumber > rightNumber{ // player wins
+            playerScore += 1
             leftScoreLabel.text = "\(playerScore)"
-        } else if leftNumber == rightNumber {
+        } else if leftNumber == rightNumber { // tie
 //            print("There is a draw")
-            playerScore = playerScore+1
+            playerScore += 1
             leftScoreLabel.text = "\(playerScore)"
-            computerScore = computerScore+1
+            computerScore += 1
             rightScoreLabel.text = "\(computerScore)"
-        } else{
-            computerScore = computerScore+1
+        } else { // CPU wins
+            computerScore += 1
             rightScoreLabel.text = "\(computerScore)"
         }
     }
